@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	version="1.1"
+	viewBox="0 0 2000 2000">
+	<defs>
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="RedRect"
+			style="fill:#f00;fill-opacity:1;stroke:#800000;stroke-width:4;"
+			transform="scale(0.015625)"
+		/>
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="GreenRect"
+			style="fill:#0f0;fill-opacity:1;stroke:#008000;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="BlueRect"
+			style="fill:#00f;fill-opacity:1;stroke:#000080;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="YellowRect"
+			style="fill:#808000;fill-opacity:1;stroke:#404000;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="CyanRect"
+			style="fill:#008080;fill-opacity:1;stroke:#004040;stroke-width:4;" 
+			transform="scale(0.015625)"/>
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="MagentaRect"
+			style="fill:#800080;fill-opacity:1;stroke:#400040;stroke-width:4;" 
+			transform="scale(0.015625)"/>
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="GrayRect"
+			style="fill:#555;fill-opacity:1;stroke:#2a2a2a;stroke-width:4;" 
+			transform="scale(0.015625)"/>
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="TargetRect"
+			style="fill:transparent;stroke:#fff;stroke-width:4;" 
+			transform="scale(0.015625)"/>
+	
+
+	</defs>
+	<style type="text/css">
+		.Area{
+		fill: rgba(0,0,0,0.65);
+		stroke:red;
+		stroke-width:0.125;
+		}
+		text{
+			font-family: monospace;
+			font-size: 50%;
+			fill:white;
+		}
+	</style>
+	<image id="BackGround" x="0" y="0" transform="scale(1)" width="1074" height="895" xlink:href="http://upload.wikimedia.org/wikipedia/commons/1/1f/52706main_hstorion_lg.jpg"/>
+	<rect id="PlayAreaBorder" class="Area" x="0.5" y="0.5" rx="0.25" ry="0.25" />
+	<g id="PlayArea" transform="translate(1.5,1.5)"/>
+	<g id="TargetArea" transform="translate(1.5,1.5)"/>
+	<g transform="translate(-0.5,0.5)">
+		<g id="QueueResize">
+			<rect id="QueueBorder" class="Area" x="-5" y="0" width="5" rx="0.25" ry="0.25" />
+			<g id="Queue" transform="translate(-2.5,2.5)"/>
+		</g>
+		<text transform="translate(-10,1) scale(0.1) " >Peças</text>
+		<text id="PieceCount" transform="translate(-10,2) scale(0.1) " />
+		<text transform="translate(-10,3) scale(0.1) " >Linhas</text>
+		<text id="LineCount" transform="translate(-10,4) scale(0.1) " />
+		<text transform="translate(-10,5) scale(0.1) " >Tempo</text>
+		<text id="TimeCounter" transform="translate(-10,6) scale(0.1) " />
+		<text transform="translate(-10,7) scale(0.1) " >Pontos</text>
+		<text id="ScoreBoard" transform="translate(-10,8) scale(0.1) " />
+	</g>
+	
+	<script type="text/javascript" xlink:href="Common.js" />
+	<script type="text/javascript" xlink:href="PlayArea.class.js" />
+	<script type="text/javascript" xlink:href="PieceQueue.class.js" />
+	<script type="text/javascript" xlink:href="Piece.class.js" />
+	<script type="text/javascript" xlink:href="Main.js" />
+	<script type="text/javascript" xlink:href="progss.js" />
+	
+	
+</svg>

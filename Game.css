@@ -1,0 +1,76 @@
+* {
+	cursor: default;
+	-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+#PauseScreen text {
+	text-anchor: middle;
+}
+#GameScreen text {
+	text-anchor: right;
+}
+
+.Area,.Line{
+	fill: rgba(0,0,0,0.65);
+	stroke:red;
+	stroke-width:0.125;
+}
+text{
+	font-family: monospace;
+	font-size: 50%;
+	fill:white;
+}
+
+#RedRect,#GreenRect,#BlueRect,#YellowRect,#CyanRect,#MagentaRect,#GrayRect,#TargetRect {
+	fill-opacity:1;
+	stroke-width:4;
+}
+#PlayArea, #PlayArea *, #PlayAreaBorder {
+	
+	cursor: ew-resize;
+}
+
+
+#RedRect {
+	fill:#f00;
+	stroke:#800000;
+}
+
+#GreenRect {
+	fill:#0f0;
+	stroke:#008000;
+}
+
+#BlueRect {
+	fill:#00f;
+	stroke:#000080;
+}
+
+#YellowRect {
+	fill:#ff0;
+	stroke:#808000;
+}
+
+#CyanRect {
+	fill:#088;
+	stroke:#044;
+}
+
+#MagentaRect {
+	fill:#808;
+	stroke:#404;
+}
+
+#GrayRect {
+	fill:#888;
+	stroke:#444;
+}
+
+#TargetRect {
+	fill:none;
+	stroke:rgba(255,255,255,0.3);
+}

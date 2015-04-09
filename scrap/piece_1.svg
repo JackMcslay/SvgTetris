@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   viewBox="0 0 12 26">
+	<defs>
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="RedRect"
+			style="fill:#f00;fill-opacity:1;stroke:#800;stroke-width:4;" 
+			transform="scale(0.015625)"
+		/>
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="GreenRect"
+			style="fill:#080;fill-opacity:1;stroke:#040;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="BlueRect"
+			style="fill:#00f;fill-opacity:1;stroke:#008;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="YellowRect"
+			style="fill:#ff0;fill-opacity:1;stroke:#880;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="CyanRect"
+			style="fill:#088;fill-opacity:1;stroke:#044;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="MagentaRect"
+			style="fill:#808;fill-opacity:1;stroke:#404;stroke-width:4;"
+			transform="scale(0.015625)" />
+		<rect 
+			width="64"
+			height="64"
+			rx="8"
+			ry="8"
+			x="-32"
+			y="-32"
+			id="GrayRect"
+			style="fill:#555;fill-opacity:1;stroke:#2a2a2a;stroke-width:4;"
+			transform="scale(0.015625)" />
+		
+
+		<rect
+			width="64"
+			height="1080"
+			x="-32"
+			y="0"
+			id="Target"
+			style="fill:url(#TargetGradient);fill-opacity:1;stroke:none"
+			transform="scale(0.015625)" />
+	</defs>
+	<rect x="0" y="0" width="12" height="26" fill="black" />
+	
+	<g transform="translate(1,1)">
+	<rect  id="PlayArea"
+		   width="11"
+		   height="25"
+		   x="-0.5"
+		   y="-0.5"
+		   rx="0.5"
+		   ry="0.5"
+		   style="stroke:red;stroke-width:0.125;fill: transparent;" />
+
+	</g>
+	<script type="text/javascript" xlink:href="Common.js"/>
+	<script type="text/javascript" xlink:href="Piece.class.js"/>
+	<script type="text/javascript" xlink:href="PieceQueue.class.js"/>
+	<script type="text/javascript" xlink:href="PlayArea.class.js"/>
+	<script type="text/javascript">
+		var p = document.getElementById('p');
+		var root = document.documentElement;
+		var tr;
+		tr = root.createSVGTransform();
+		p.transform.baseVal.appendItem(tr);
+		tr.setTranslate(0,12);
+		
+		tr = root.createSVGTransform();
+		p.transform.baseVal.appendItem(tr);
+		tr.setTranslate(1.5,1.5);
+		
+		tr = root.createSVGTransform();
+		p.transform.baseVal.appendItem(tr);
+		tr.setRotate(90,0,0);
+		
+		alert(p.getAttribute('transform'));
+		
+	</script>
+	
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Game.xsl"?>
+<lang
+	Pieces="Peças"
+	Lines="Linhas"
+	Time="Tempo"
+	Score="Pontos"
+	GameOver="Fim do jogo"
+	Start="Iniciar"
+	Controls="Controles"
+	Paused="Pausa"
+	Continue="Clique aqui para continuar"
+	Speed="Velocidade"
+
+/>
