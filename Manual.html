@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html id="HowToPlay">
+	<head>
+		<title>SVGTetris - How To Play</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="Menu.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript">
+			function resizeArticle() {
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					//console.log(window);
+					articles[i].style.height = '';
+					articles[i].className = "SingleScreen";
+					if (articles[i].offsetHeight < window.innerHeight) {
+						articles[i].style.height = window.innerHeight + 'px';
+						articles[i].className = "SingleScreen";
+					} else {
+						articles[i].className = "";
+					}
+				}
+				makeNav();
+			}
+
+			function makeNav() {
+				var scroll = window.scrollY;
+				var height = window.innerHeight;
+				var scrollmid = scroll + (height / 2);
+				var articles = document.getElementsByTagName("article");
+				for (var i = 0; i < articles.length; i++) {
+					var article = articles[i];
+					var top = article.offsetTop;
+					var bottom = top + article.offsetHeight;
+
+					if (scrollmid >= top && scrollmid <= bottom) {
+						var prevIdx = i - 1;
+						var nextIdx = i + 1;
+						var navPrev = document.getElementById("PrevPage");
+						var navNext = document.getElementById("NextPage");
+						if (prevIdx < 0) {
+							navPrev.className = "Hidden";
+						} else {
+							navPrev.className = "Show";
+							var prev = articles[prevIdx];
+							var title =
+									prev.
+									getElementsByTagName('h1')[0].
+									textContent;
+
+							navPrev.getElementsByClassName("Text")[0].textContent = title;
+							navPrev.href = "#" + prev.id;
+						}
+
+						if (nextIdx >= articles.length) {
+							navNext.className = "Hidden";
+						} else {
+							navNext.className = "Show";
+							var next = articles[nextIdx];
+							var title =
+									next.
+									getElementsByTagName('h1')[0].
+									textContent;
+
+							navNext.getElementsByClassName("Text")[0].textContent = title;
+							navNext.href = "#" + next.id;
+						}
+
+						break;
+					}
+				}
+			}
+
+			window.addEventListener("resize", resizeArticle);
+			window.addEventListener("load", resizeArticle);
+			window.addEventListener("scroll", makeNav);
+		</script>
+	</head>
+	<body><a href="./" id="MainMenu">
+				Back to main menu
+			</a>
+		<div id="Navigation">
+			
+			<a id="PrevPage" href="">
+				<div class="Symbol">⏫</div>
+				<div class="Text"></div>
+			</a>
+			<a id="NextPage" href="">			
+				<div class="Text"></div>
+				<div class="Symbol">⏬</div>
+			</a>
+		</div>
+
+		<article id="Controls">
+			<div>
+				<h1>Controls</h1>
+				<h2>Mouse</h2>
+				<img src="Controls.svg" style="" alt="Controls"/>
+				<h2>Keyboard</h2>
+				<table>
+					<tr>
+						<td>A or ←:</td>
+						<td>Move left</td>
+					</tr><tr>
+						<td>S or ↓:</td>
+						<td>Move down</td>
+					</tr><tr>	
+						<td>D or →:</td>
+						<td>Move right</td>
+					</tr><tr>	
+						<td>Q or Ctrl:</td>
+						<td>Rotate ↶</td>
+					</tr><tr>	
+						<td>E or KpIns:</td>
+						<td>Rotate ↷</td>
+					</tr><tr>	
+						<td>W or ↑:</td>
+						<td>Rotate 180°</td>
+					</tr><tr>
+						<td>Space:</td>
+						<td>Drop the block</td>
+					</tr>
+					<tr>
+						<td>Esc or Pause:</td>
+						<td>Pause the game</td>
+					</tr>
+				</table>
+			</div>
+		</article>
+		<hr>
+		<article id="Game"><div>
+				<h1>Game</h1>
+				<div class="columns">
+					<p>
+						The goal of the game is to make completed lines while avoiding the
+						blocks from reaching the top. Every time a completed line is made,
+						it disappears and the blocks on top of it fall down. 
+
+						You must try to figure out the most effective way of 
+						arranging the pieces based on the next 10 pieces as displayed on 
+						the left to the play area (preview box). The next piece is the 
+						highest on the preview box.
+					</p>
+					<p>
+						There is no end to the game. The goal is to accumulate the 
+						highest score possible without letting the blocks drop at the top 
+						of the pile. You score highest the lower the blocks are dropped 
+						and lines are made, as well as how fast the block is at the time.
+						You also get scoring bonuses according to how many lines you do 
+						at once. At every piece you drop, the next piece will be slightly 
+						faster the speed will build up and it's up to you to heighten 
+						your reflexes to match.
+					</p>
+					<p>
+						You control the cursor with either the mouse or the keyboard (see 
+						controls). Move left and right to choose where you want the block 
+						to go and rotate it to best match the target location. If you are
+						sure of your target. You can drop the block immediately by 
+						dropping it. You can also make it fall faster by moving it down
+					</p>
+					<p>
+						When playing with the mouse, the block will always try to follow 
+						the cursor's horizontal position. And if you try to turn and the 
+						block cannot fit at the given the orientation, it will rotate 
+						again on the same direction until it can fit. You can use those 
+						to fit the blocks into tight spaces.
+					</p>
+				</div>
+			</div>
+		</article>
+		<hr>
+		<article id="About"><div>
+				<h1>About</h1>
+			</div>
+		</article>
+
+	</body>
+</html>

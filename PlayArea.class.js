@@ -5,8 +5,8 @@
  */
 
 var PlayArea;
-(function() {
-	PlayArea = function(area, border, windowObj, background) {
+(function () {
+	PlayArea = function (area, border, windowObj, background) {
 		this.Area = area;
 		this.Border = border;
 		this.SvgRoot = area.ownerDocument.documentElement;
@@ -14,7 +14,7 @@ var PlayArea;
 		this.background = background;
 		var This = this;
 
-		this.resize = function() {
+		this.resize = function () {
 			var windowRatio = This.windowObj.innerWidth / This.windowObj.innerHeight;
 			if (windowRatio > This.screenRatio) {
 				var virtwidth = This.screenHeight * windowRatio;
@@ -29,35 +29,39 @@ var PlayArea;
 				This.yOfs = (virtheight - This.screenHeight) / -2;
 			}
 
-			var bgw = This.background.getAttribute('width');
-			var bgh = This.background.getAttribute('height');
-			var bgRatio = bgw / bgh;
-			var bgscale, bgy, bgx;
+			if (This.background) {
 
-			bgx = 0;
-			bgy = 0;
-			if (bgRatio > windowRatio) {
-				bgscale = (This.windowObj.innerHeight / bgh) * This.ratio;
-				bgy = ((This.windowObj.innerHeight * This.ratio) - This.screenHeight) / -2;
-				bgx = ((bgw * bgscale) - This.screenWidth) / -2;
+				var bgw = This.background.getAttribute('width');
+				var bgh = This.background.getAttribute('height');
+				var bgRatio = bgw / bgh;
+				var bgscale, bgy, bgx;
+
+				bgx = 0;
+				bgy = 0;
+				if (bgRatio > windowRatio) {
+					bgscale = (This.windowObj.innerHeight / bgh) * This.ratio;
+					bgy = ((This.windowObj.innerHeight * This.ratio) - This.screenHeight) / -2;
+					bgx = ((bgw * bgscale) - This.screenWidth) / -2;
+				}
+				else {
+					bgscale = (This.windowObj.innerWidth / bgw) * This.ratio;
+					bgx = ((This.windowObj.innerWidth * This.ratio) - This.screenWidth) / -2;
+					bgy = ((bgh * bgscale) - This.screenHeight) / -2;
+				}
+
+
+
+				var tr = 'translate(' + bgx + ' ' + bgy + ') scale(' + bgscale + ')';
+
+				This.background.setAttribute('transform', tr);
+				This.background.setAttribute('x', 0);
+				This.background.setAttribute('y', 0);
 			}
-			else {
-				bgscale = (This.windowObj.innerWidth / bgw) * This.ratio;
-				bgx = ((This.windowObj.innerWidth * This.ratio) - This.screenWidth) / -2;
-				bgy = ((bgh * bgscale) - This.screenHeight) / -2;
-			}
-
-
-
-			var tr = 'translate(' + bgx + ' ' + bgy + ') scale(' + bgscale + ')';
-			This.background.setAttribute('transform', tr);
-			This.background.setAttribute('x', 0);
-			This.background.setAttribute('y', 0);
 		};
 		this.windowObj.addEventListener('resize', this.resize);
 		this.topScores = unserializeScores(localStorage['Top.Scores']);
 	};
-	PlayArea.prototype.setup = function(width, height) {
+	PlayArea.prototype.setup = function (width, height) {
 		this.width = Int(width);
 		this.gameHeight = Int(height);
 		this.height = this.gameHeight + 4;
@@ -81,7 +85,7 @@ var PlayArea;
 		this.resize();
 	};
 
-	PlayArea.prototype.reset = function() {
+	PlayArea.prototype.reset = function () {
 		this.Area.innerHTML = '';
 		this.score = 0;
 		this.pieceCount = 0;
@@ -96,7 +100,7 @@ var PlayArea;
 		this.Piece = this.Queue.next();
 		this.gameOver = false;
 	};
-	PlayArea.prototype.updateCounters = function() {
+	PlayArea.prototype.updateCounters = function () {
 		if (this.Speedometer) {
 			this.Speedometer.textContent = Math.round(Piece.prototype.gravity * 100) + '%';
 		}
@@ -139,7 +143,7 @@ var PlayArea;
 			this.TimeCounter.textContent = hour + ':' + min + ':' + sec;
 		}
 
-	}
+	};
 
 	PlayArea.prototype.Area = null;
 	PlayArea.prototype.Grid = null;
@@ -149,11 +153,11 @@ var PlayArea;
 	PlayArea.prototype.pieceCount = 0;
 	PlayArea.prototype.score = 0;
 	PlayArea.prototype.time = 0;
-	PlayArea.prototype.put = function(piece) {
+	PlayArea.prototype.put = function (piece) {
 		this.Piece = piece;
 		this.Area.appendChild(piece.node);
 	};
-	PlayArea.prototype.update = function(interval) {
+	PlayArea.prototype.update = function (interval) {
 		if (this.Piece) {
 			this.Piece.update(interval);
 		}
@@ -164,7 +168,7 @@ var PlayArea;
 		this.updateCounters();
 	}
 
-	PlayArea.prototype.fix = function(This) {
+	PlayArea.prototype.fix = function (This) {
 		if (!This.node.parentNode) {
 			return;
 		}
@@ -191,10 +195,10 @@ var PlayArea;
 		if (gameOver) {
 			this.Piece = null;
 			this.gameOver = true;
-			
-			this.topScores.push({time:Date.now(),value:this.score});
+
+			this.topScores.push({time: Date.now(), value: this.score});
 			orderScores(this.topScores);
-			
+
 			localStorage['Top.Scores'] = serializeScores(this.topScores);
 
 			alert('Game Over!');
@@ -209,7 +213,7 @@ var PlayArea;
 		this.pieceCount++;
 	};
 
-	PlayArea.prototype.setTarget = function(idx, x, y) {
+	PlayArea.prototype.setTarget = function (idx, x, y) {
 		//console.log (x,y);
 		if (!this.TargetArea) {
 			return;
@@ -240,7 +244,7 @@ var PlayArea;
 	 * Clears the completed lines
 	 * @returns {Number} Ammount of lines removed
 	 */
-	PlayArea.prototype.clearLines = function() {
+	PlayArea.prototype.clearLines = function () {
 		var count = 0;
 		var x, y;
 		var addscore = 0;
@@ -295,13 +299,13 @@ var PlayArea;
 			value = value.split('\n');
 			for (var i = 0; i < value.length; i++) {
 				var data = value[i].split('\t');
-				out.push({time:parseInt(data[0]),value:parseFloat(data[1])});
+				out.push({time: parseInt(data[0]), value: parseFloat(data[1])});
 			}
 		} catch (ex) {
 		}
 		return out;
 	}
-	
+
 	/**
 	 * 
 	 * @param {Array} scores
@@ -311,7 +315,7 @@ var PlayArea;
 		var out = '';
 		try {
 			for (var i = 0; i < scores.length; i++) {
-				if (i){
+				if (i) {
 					out += '\n';
 				}
 				out += scores[i].time + '\t' + scores[i].value;
@@ -320,21 +324,21 @@ var PlayArea;
 		}
 		return out;
 	}
-	
-	function orderScores(scores){
+
+	function orderScores(scores) {
 		var reorder = false;
 		do {
 			reorder = false;
-			for (var i = 1; i < scores.length; i++){
-				if (scores[i-1].value < scores[i].value){
-					var aux = scores[i-1];
-					scores[i-1] = scores[i];
+			for (var i = 1; i < scores.length; i++) {
+				if (scores[i - 1].value < scores[i].value) {
+					var aux = scores[i - 1];
+					scores[i - 1] = scores[i];
 					scores[i] = aux;
 					reorder = true;
 				}
 			}
 			console.log('reordering');
-		}while (reorder);
+		} while (reorder);
 		return scores;
 	}
 })();

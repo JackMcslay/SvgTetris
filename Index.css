@@ -1,0 +1,17 @@
+iframe {
+	position: absolute;
+	bottom:0;
+	right:0;
+	top:0;
+	left:0;
+	border:0;
+	width:100%;
+	height:100%;
+}
+
+body {
+	background: #020;
+	background:-ms-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url(bg.jpeg);
+	background: linear-gradient(to right,rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url(bg.jpeg);
+	
+}

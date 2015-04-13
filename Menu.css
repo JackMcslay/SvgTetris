@@ -1,0 +1,144 @@
+*{
+	text-align: center;
+	font-family: monospace;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+menu {
+	margin: 0;
+	padding:0;
+	margin-bottom: 5em;
+	position: fixed;
+	bottom:0;
+	left:0;right:0;
+}
+menu li {
+
+	margin: auto;
+	list-style: none;
+
+	font-size: xx-large;	
+	font-weight: bold;
+}a{
+	color: white;
+}
+a:hover{
+	text-shadow:0 0 1em white;
+}
+footer{
+	position: fixed;
+	bottom:0;
+	color: yellow;
+}
+
+article {
+	margin:0;
+	padding:0;
+	color:white;
+	
+}
+article>div{
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+article h1, article h2{
+	font-size: xx-large;
+	color:white;
+	font-variant: small-caps;
+}
+article h2{
+	font-size: x-large;
+}
+
+article table {
+	font-family: sans;
+	color: white;
+	width: 100%;
+}
+article table td {
+	font-family: sans;
+	font-size: small;
+	width:50%;
+	text-align: right;
+}
+article table td+td {
+	text-align: left;
+} 
+article:target{
+	transition: 0.2s;
+}
+
+article .columns {
+	margin: 1em;
+}
+article.SingleScreen .columns {
+	-moz-column-width: 30em;
+	-webkit-column-width: 30em;
+	column-width: 30em;
+}
+
+p {	
+	text-align: justify;
+	font-family: sans;
+	font-size: small;
+}
+p:first-child{
+	margin-top: 0;
+}
+
+html#HowToPlay,html#HowToPlay body {
+	height: 100%;
+	width: 100%;
+	margin:0;
+	
+}
+
+hr {
+	border: 0;
+	height: 0.2em;
+	background: white;
+}
+
+#PrevPage,#NextPage{
+	position: fixed;
+	display: box;
+	width: 10em;
+	transition: 0.3s;
+	opacity: 0.5;
+	background: black;
+	background: rgba(0,0,0,0.7);
+	text-decoration: none;
+	font-size: large;
+	font-weight: bold;
+	margin-left: -5em;
+}
+
+#PrevPage.Hidden,#NextPage.Hidden{
+	opacity:0;
+}
+
+
+
+#PrevPage.Show:hover,#NextPage.Show:hover{
+	opacity: 0.75;
+}
+#PrevPage{
+	top:0;
+}
+#NextPage{
+	bottom:0;
+}
+
+#MainMenu{
+	position:fixed;
+	left:0;
+	background: black;
+	font-size: large;
+	font-weight: bold;
+	padding: 0.3em;
+}
