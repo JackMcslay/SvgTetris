@@ -1,8 +1,0 @@
-#!/bin/bash
-jscompiler \
---js=Common.js \
---js=Piece.class.js \
---js=PieceQueue.class.js \
---js=PlayArea.class.js \
---js=Main.js \
---js_output_file=progs.js
